@@ -1,5 +1,5 @@
 import { games } from "./data.js";
-import { afficherGames } from "./UI.js";
+import { afficherJeux } from "./main.js";
 
 const input = document.getElementById("input");
 
@@ -11,6 +11,6 @@ const value = input.value.toLowerCase();
 
 const result = games.filter(game =>
    game.title.toLowerCase().includes(value)
-  ); afficherGames(result)
+  ); afficherJeux(result)
 });}
 

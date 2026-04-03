@@ -1,7 +1,9 @@
 import { games } from "./data.js";
+import { SearchInput } from "./search.js";
 const boite = document.getElementById("games-container");
 
-function afficherJeux(listeJeux){
+
+export function afficherJeux(listeJeux){
     boite.innerHTML="";
     listeJeux.forEach(jeux => {
         const carteHTML = `
@@ -37,3 +39,4 @@ function afficherJeux(listeJeux){
 }
 
 afficherJeux(games);
+SearchInput();
