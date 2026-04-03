@@ -3,8 +3,7 @@ let panier = panierSauvgarde ? JSON.parse(panierSauvgarde):[];
 
 const cartContainer = document.getElementById("cart-items-container");
 const totalArticles = document.getElementById("total-articles");
-const sousTotalElement = document.getElementById("sous-total");
-const tvaElement = document.getElementById("tva");
+
 const prixTotalElement = document.getElementById("prix-total");
 
 function afficherPanier(){
@@ -57,4 +56,30 @@ totalArticles.innerText = nbArticles;
     prixTotalElement.innerText = prixTotal.toFixed(2) + "$";
 }
 
+function actualiserPanier(){
+    localStorage.setItem("VaultCart" , JSON.stringify(panier));
+    afficherPanier();
+}
+
+window.augmenterQuantite = function(id){
+    const jeu = panier.find(e=>e.id === id);
+    if(jeu){
+        jeu.quantite+=1;
+        actualiserPanier()
+    }
+};
+window.diminuerQuantite = function(id) {
+    const jeu = panier.find(item => item.id === id);
+    if (jeu && jeu.quantite > 1) {
+        jeu.quantite -= 1;
+        actualiserPanier();
+    } else if (jeu && jeu.quantite === 1) {
+        supprimerJeu(id);
+    }
+};
+
+window.supprimerJeu=function(id){
+    panier=panier.filter(e=>e.id !==id);
+    actualiserPanier();
+}
 afficherPanier();
