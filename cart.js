@@ -8,14 +8,14 @@ const prixTotalElement = document.getElementById("prix-total");
 function afficherPanier() {
     cartContainer.innerHTML = "";
     
-    // Ila kan l'panier khawi
+   
     if (panier.length === 0) {
         cartContainer.innerHTML = `<p class="text-gray-400 text-lg text-center mt-10">Votre coffre-fort est vide.</p>`;
         mettreAJourTotal();
         return;
     }
 
-    // Ila fih sl3a
+   
     panier.forEach(jeu => {
         const itemHTML = `
         <div class="bg-[#1a1a24] p-4 rounded-2xl flex items-center justify-between shadow-lg mb-4 border border-gray-800">
@@ -50,7 +50,6 @@ function afficherPanier() {
     mettreAJourTotal();
 }
 
-// Fonction dyal l'7ssab bla TVA (Mbssta)
 function mettreAJourTotal() {
     let prixTotal = 0;
     let nbArticles = 0;
@@ -64,15 +63,10 @@ function mettreAJourTotal() {
     prixTotalElement.innerText = prixTotal.toFixed(2) + "$";
 }
 
-// Fonction katsauvi f local storage w katsme9 l'affichage
 function actualiserPanier() {
     localStorage.setItem("VaultCart", JSON.stringify(panier));
     afficherPanier();
 }
-
-// ==========================================
-// L'Makhina dyal les Boutons (Ktbtha nadiya)
-// ==========================================
 
 window.augmenterQuantite = function(id) {
     const jeu = panier.find(e => e.id === id);
@@ -88,7 +82,7 @@ window.diminuerQuantite = function(id) {
         jeu.quantite -= 1;
         actualiserPanier();
     } else if (jeu && jeu.quantite === 1) {
-        supprimerJeu(id); // Ila wsslat l 1 w wrekna 3la -, kanms7ouh
+        supprimerJeu(id); 
     }
 };
 
@@ -97,7 +91,7 @@ window.supprimerJeu = function(id) {
     actualiserPanier();
 }
 
-// Khdemha mli t7el l'page
+
 afficherPanier();
 
 
