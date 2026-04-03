@@ -1,29 +1,7 @@
 import { afficherJeux } from "./main";
 const category = document.getElementById("category");
 
-export function Affichercategory() {
-  category.innerHTML = `
-    <div class="flex gap-4 flex-wrap justify-center mt-6">
 
-      <button data-name="Action" class="px-6 py-2 bg-[#2a2a2a] text-white rounded-full hover:bg-orange-400 transition">
-        Action
-      </button>
-
-      <button data-name="RPG" class="px-6 py-2 bg-[#2a2a2a] text-white rounded-full hover:bg-orange-500 transition">
-        RPG
-      </button>
-
-      <button data-name="FPS" class="px-6 py-2 bg-[#2a2a2a] text-white rounded-full hover:bg-orange-500 transition">
-        FPS
-      </button>
-
-      <button data-name="all" class="px-6 py-2 bg-gray-500 text-white rounded-full">
-        Tous
-      </button>
-
-    </div>
-  `;
-}
 
 
 export function FiltrerCategory(games) {
