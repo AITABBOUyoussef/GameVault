@@ -41,4 +41,4 @@ export function afficherJeux(listeJeux){
 
 afficherJeux(games);
 SearchInput();
-// FiltrerCategory();
+FiltrerCategory(games);

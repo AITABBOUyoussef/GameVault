@@ -1,4 +1,4 @@
-import { games } from "./data.js";
+// import { games } from "./data.js";
 import { afficherJeux } from "./main";
 const category = document.getElementById("category");
 
@@ -8,7 +8,7 @@ export function FiltrerCategory(games) {
 
     const categorie = e.target.dataset.name;
 
-    if (categorie === "all") {      
+    if (categorie === "All") {      
       afficherJeux(games)
     }
     else {
