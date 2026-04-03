@@ -33,7 +33,7 @@ export function FiltrerCategory(games) {
     const categorie = e.target.dataset.name;
 
     if (categorie === "all") {      
-      afficherGames(games)
+      afficherJeux(games)
     }
     else {
       const result = [];
