@@ -26,7 +26,7 @@ export function afficherJeux(listeJeux){
                 </div> 
                 
                 <div class="mt-auto w-full">
-                    <button class="w-full bg-gray-800 hover:bg-purple-600 text-white font-bold py-3 rounded-xl transition-colors duration-300">
+                    <button id="btnAdd" class="w-full bg-gray-800 hover:bg-purple-600 text-white font-bold py-3 rounded-xl transition-colors duration-300">
                         Add to cart
                     </button>
                 </div>
