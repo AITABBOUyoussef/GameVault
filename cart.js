@@ -45,16 +45,15 @@ function afficherPanier(){
     mettreAJourTotal();
 }
 function mettreAJourTotal(){
-    let sousTotal = 0;
+    let prixTotal = 0;
     let nbArticles = 0;
 
     panier.forEach(jeu => {
-        sousTotal+=jeu.price*jeu.quantite;
+        prixTotal+=jeu.price*jeu.quantite;
         nbArticles += jeu.quantite;
     })
 totalArticles.innerText = nbArticles;
-    sousTotalElement.innerText = sousTotal.toFixed(2) + "$";
-    tvaElement.innerText = tva.toFixed(2) + "$";
+
     prixTotalElement.innerText = prixTotal.toFixed(2) + "$";
 }
 
