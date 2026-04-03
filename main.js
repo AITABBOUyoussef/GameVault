@@ -1,5 +1,6 @@
 import { games } from "./data.js";
 import { SearchInput } from "./search.js";
+import { FiltrerCategory } from "./category.js";
 const boite = document.getElementById("games-container");
 
 
@@ -40,4 +41,4 @@ export function afficherJeux(listeJeux){
 
 afficherJeux(games);
 SearchInput();
-FiltrerCategory();
+// FiltrerCategory();

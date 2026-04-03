@@ -1,8 +1,6 @@
+import { games } from "./data.js";
 import { afficherJeux } from "./main";
 const category = document.getElementById("category");
-
-
-
 
 export function FiltrerCategory(games) {
 
@@ -21,7 +19,7 @@ export function FiltrerCategory(games) {
 
         }
       }
-      afficherGames(result)
+      afficherJeux(result)
       
     }
   });
