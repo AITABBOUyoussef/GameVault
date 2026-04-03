@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/output.css" rel="stylesheet">
+    <title>GameVault - Mon Panier</title>
+</head>
+<body class="bg-[#0b0b0e] text-white font-sans min-h-screen">
+
+    <header class="flex justify-between items-center p-6 border-b border-gray-800">
+        <a href="index.html" class="text-xl font-bold flex items-center gap-2 hover:text-purple-400 transition">
+            <span class="text-purple-500">←</span> Retour au Catalogue
+        </a>
+        <div class="text-2xl font-bold"><span class="text-purple-500">✧</span> GameVault</div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-2">Mon Panier</h1>
+        <p class="text-gray-400 mb-8">Vous avez <span id="total-articles" class="text-purple-500 font-bold">0</span> articles dans votre coffre-fort digital.</p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div id="cart-items-container" class="lg:col-span-2 flex flex-col gap-4">
+                
+                <div class="bg-[#1a1a24] p-4 rounded-2xl flex items-center justify-between shadow-lg">
+                    <div class="flex items-center gap-4">
+                        <img src="https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077PhantomLiberty_CDPROJEKTRED_DLC_S1_2560x1440-c62f1eb1498aaea2fc109b7aa50279a3?resize=1&w=480&h=270&quality=medium" alt="Game" class="w-20 h-20 object-cover rounded-xl">
+                        <div>
+                            <h2 class="text-xl font-bold">Cyberpunk 2077</h2>
+                            <p class="text-gray-400 text-sm">Action RPG</p>
+                            <div class="flex items-center gap-3 mt-2 bg-[#0b0b0e] w-fit px-3 py-1 rounded-full">
+                                <button class="text-gray-400 hover:text-white">-</button>
+                                <span>1</span>
+                                <button class="text-gray-400 hover:text-white">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-end gap-3">
+                        <p class="text-xl font-bold">59.99$</p>
+                        <button class="text-red-500 hover:text-red-400 transition">🗑️</button>
+                    </div>
+                </div>
+                </div>
+
+            <div class="bg-[#1a1a24] p-6 rounded-3xl h-fit shadow-xl border border-gray-800">
+                <h2 class="text-xl font-bold mb-6 text-gray-300 uppercase tracking-wider">Résumé de la commande</h2>
+                
+                <div class="flex justify-between mb-3 text-gray-400">
+                    <span>Sous-total</span>
+                    <span id="sous-total">59.99$</span>
+                </div>
+                <div class="flex justify-between mb-6 text-gray-400 border-b border-gray-700 pb-6">
+                    <span>TVA (20%)</span>
+                    <span id="tva">12.00$</span>
+                </div>
+                
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-lg font-bold">Total Price</span>
+                    <span id="prix-total" class="text-3xl font-bold text-purple-400">71.99$</span>
+                </div>
+
+                <button id="btn-commander" class="w-full bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+                    COMMANDER →
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <script type="module" src="./js/cart.js"></script>
+</body>
+</html>

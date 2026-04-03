@@ -7,8 +7,13 @@
     <title>Document</title>
 </head>
 <body class="bg-black/90 flex flex-col h-[100vh]">
-    <header class="flex  justify-center rounded-3xl m-2 mt-4  ">
-        <input type="search" name="inp" id="input" class="bg-red-600 border-red-800 rounded-full p-2 " >
+   <header class="flex justify-between items-center p-4 mt-4 w-[90%] mx-auto">
+        <input type="search" name="inp" id="input" placeholder="Search the vault..." class="bg-[#1a1a24] text-white border border-gray-700 rounded-full p-3 w-[60%] lg:w-[30%] focus:outline-none focus:border-purple-500 transition" >
+        
+        <a href="panier.html" class="bg-[#1a1a24] hover:bg-purple-600 text-white px-5 py-3 rounded-2xl flex items-center gap-2 font-bold transition">
+            🛒 <span class="hidden md:inline">CART</span>
+            <span id="cart-count" class="bg-purple-500 text-white rounded-full h-6 w-6 flex items-center justify-center text-sm">0</span>
+        </a>
     </header>
     <main class="flex flex-col  m-4 justify-center items-center">
         <div class=" flex justify-center gap-2 overflow-visible">
