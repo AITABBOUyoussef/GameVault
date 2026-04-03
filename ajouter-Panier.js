@@ -19,4 +19,6 @@ export function ajouterPanier(id_jeu){
     
     }
     document.getElementById("cart-count").innerText=panier.length;
+
+    localStorage.setItem("VaultCart" , JSON.stringify(panier));
 }
