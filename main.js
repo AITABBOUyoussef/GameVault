@@ -5,32 +5,33 @@ function afficherJeux(listeJeux){
     boite.innerHTML="";
     listeJeux.forEach(jeux => {
         const carteHTML = `
-        <div class="flex flex-col w-full h-full rounded-3xl overflow-hidden shadow-lg bg-[#a855f7]">
+        <div class="flex flex-col w-full h-full bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-purple-500 hover:-translate-y-2 transition-all duration-300">
             
-            <div class="relative w-full h-[260px] shrink-0 bg-[#1a1a24]">
+            <div class="relative w-full h-[250px] shrink-0">
                 <img src="${jeux.image}" alt="${jeux.title}" class="w-full h-full object-cover">
+                
+                <span class="absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider">
+                    ${jeux.category}
+                </span>
             </div>
             
-            <div class="w-full flex flex-col flex-grow p-4">
+            <div class="flex flex-col flex-grow p-5">
                 
-                <div class="flex justify-between items-center w-full mb-3">
-                    <span class="bg-green-500 rounded-xl px-3 py-1 flex justify-center items-center h-8 shadow-md">
-                        <p class="text-sm font-medium text-white">${jeux.category}</p>
-                    </span>
-                    <p class="text-xl font-semibold text-white drop-shadow-md">${jeux.price}$</p>
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <h2 class="text-xl font-bold text-white line-clamp-2">${jeux.title}</h2>
+                    <span class="text-lg font-extrabold text-purple-400 whitespace-nowrap">${jeux.price}$</span>
                 </div> 
                 
-                <div class="flex mb-4">
-                    <p class="text-xl md:text-2xl font-semibold text-white line-clamp-2">${jeux.title}</p>
-                </div>
-                
-                <div class="flex mt-auto justify-center items-center w-full">
-                    <button class="bg-sky-500 w-full p-3 rounded-3xl text-xl font-bold text-white hover:bg-sky-400 hover:shadow-lg transition-all cursor-pointer">add to cart</button>
+                <div class="mt-auto w-full">
+                    <button class="w-full bg-gray-800 hover:bg-purple-600 text-white font-bold py-3 rounded-xl transition-colors duration-300">
+                        Add to cart
+                    </button>
                 </div>
                 
             </div>
             
         </div>`;
+        
         boite.innerHTML += carteHTML;
     });
 }
