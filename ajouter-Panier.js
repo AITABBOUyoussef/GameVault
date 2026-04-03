@@ -12,6 +12,8 @@ export function ajouterPanier(id_jeu){
         jeuPanier.quantite+=1;
         console.log(panier);
     }else{
-        
+        panier.push({...jeuChoisi,quantite:1});
+    
     }
+    document.getElementById
 }
