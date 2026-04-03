@@ -1,4 +1,4 @@
-import { afficherGames } from "./UI.js";
+import { afficherJeux } from "./main";
 const category = document.getElementById("category");
 
 export function Affichercategory() {
