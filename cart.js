@@ -105,7 +105,12 @@ const btnCommander = document.getElementById("btn-commander");
 if(btnCommander){
     btnCommander.addEventListener("click", ()=> {
         if(panier.length===0){
-           
+           alert("Votre coffre-fort est déjà vide ! Ajoutez des jeux d'abord.")
+           return;
         }
-    })
+        alert("Félicitations ! 🎉 Votre commande a été validée avec succès. Merci d'avoir choisi GameVault !");
+        panier=[];
+        localStorage.removeItem("VaultCart");
+        afficherPanier();
+    });
 }
