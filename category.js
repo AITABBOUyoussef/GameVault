@@ -1,5 +1,5 @@
-// import { games } from "./data.js";
-import { afficherJeux } from "./main";
+import { games } from "./data.js";
+import { afficherJeux } from "./main.js";
 const category = document.getElementById("category");
 
 export function FiltrerCategory(games) {
