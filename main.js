@@ -1,6 +1,8 @@
 import { games } from "./data.js";
 import { SearchInput } from "./search.js";
 import { FiltrerCategory } from "./category.js";
+import { ajouterPanier } from "./ajouter-Panier.js";
+window.ajouterPanier = ajouterPanier;
 const boite = document.getElementById("games-container");
 
 
@@ -26,7 +28,7 @@ export function afficherJeux(listeJeux){
                 </div> 
                 
                 <div class="mt-auto w-full">
-                    <button id="btnAdd" class="w-full bg-gray-800 hover:bg-purple-600 text-white font-bold py-3 rounded-xl transition-colors duration-300">
+                    <button onclick="ajouterPanier(${jeux.id})" class="w-full bg-gray-800 hover:bg-purple-600 text-white font-bold py-3 rounded-xl transition-colors duration-300">
                         Add to cart
                     </button>
                 </div>
