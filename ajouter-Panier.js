@@ -15,5 +15,5 @@ export function ajouterPanier(id_jeu){
         panier.push({...jeuChoisi,quantite:1});
     
     }
-    document.getElementById
+    document.getElementById("cart-count").innerText=panier.length;
 }
