@@ -1,110 +1,73 @@
-const panierSauvgarde = localStorage.getItem("VaultCart");
-let panier = panierSauvgarde ? JSON.parse(panierSauvgarde) : [];
+import { getPanier, savePanier } from "./cart-data.js";
+import { afficherPanier } from "./cart-ui.js";
 
-const cartContainer = document.getElementById("cart-items-container");
-const totalArticles = document.getElementById("total-articles");
-const prixTotalElement = document.getElementById("prix-total");
-
-function afficherPanier() {
-    cartContainer.innerHTML = "";
-    
-   
-    if (panier.length === 0) {
-        cartContainer.innerHTML = `<p class="text-gray-400 text-lg text-center mt-10">Votre coffre-fort est vide.</p>`;
-        mettreAJourTotal();
-        return;
-    }
-
-   
-    panier.forEach(jeu => {
-        const itemHTML = `
-        <div class="bg-[#1a1a24] p-4 rounded-2xl flex items-center justify-between shadow-lg mb-4 border border-gray-800">
-            <div class="flex items-center gap-4">
-                <img src="${jeu.image}" alt="${jeu.title}" class="w-20 h-20 object-cover rounded-xl">
-                <div>
-                    <h2 class="text-xl font-bold text-white">${jeu.title}</h2>
-                    <p class="text-gray-400 text-sm">${jeu.category}</p>
-                    
-                    <div class="flex items-center gap-3 mt-2 bg-[#0b0b0e] w-fit px-3 py-1 rounded-full">
-                        <button onclick="diminuerQuantite(${jeu.id})" class="text-gray-400 hover:text-white cursor-pointer px-2">-</button>
-                        
-                        <span class="text-white font-bold">${jeu.quantite}</span>
-                        
-                        <button onclick="augmenterQuantite(${jeu.id})" class="text-gray-400 hover:text-white cursor-pointer px-2">+</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="flex flex-col items-end gap-3">
-                <p class="text-xl font-bold text-purple-400">${(jeu.price * jeu.quantite).toFixed(2)}$</p>
-                
-                <button onclick="supprimerJeu(${jeu.id})" class="text-gray-500 hover:text-red-500 transition p-2 bg-[#0b0b0e] rounded-xl hover:bg-red-500/10 cursor-pointer">
-                    🗑️
-                </button>
-            </div>
-        </div>`;
-        
-        cartContainer.innerHTML += itemHTML;
-    });
-
-    mettreAJourTotal();
-}
-
-function mettreAJourTotal() {
-    let prixTotal = 0;
-    let nbArticles = 0;
-
-    panier.forEach(jeu => {
-        prixTotal += jeu.price * jeu.quantite;
-        nbArticles += jeu.quantite;
-    });
-    
-    totalArticles.innerText = nbArticles;
-    prixTotalElement.innerText = prixTotal.toFixed(2) + "$";
-}
-
-function actualiserPanier() {
-    localStorage.setItem("VaultCart", JSON.stringify(panier));
-    afficherPanier();
-}
+// ==========================================
+// LES BOUTONS (+, -, POUBELLE)
+// ==========================================
 
 window.augmenterQuantite = function(id) {
-    const jeu = panier.find(e => e.id === id);
-    if (jeu) {
-        jeu.quantite += 1;
-        actualiserPanier();
+    let panier = getPanier(); // njbdo panier
+    
+    for (let i = 0; i < panier.length; i++) {
+        if (panier[i].id === id) {
+            panier[i].quantite += 1;
+            break;
+        }
     }
+    
+    savePanier(panier); // nsauviw
+    afficherPanier();   // nrsmo
 };
 
 window.diminuerQuantite = function(id) {
-    const jeu = panier.find(item => item.id === id);
-    if (jeu && jeu.quantite > 1) {
-        jeu.quantite -= 1;
-        actualiserPanier();
-    } else if (jeu && jeu.quantite === 1) {
-        supprimerJeu(id); 
+    let panier = getPanier();
+    
+    for (let i = 0; i < panier.length; i++) {
+        if (panier[i].id === id) {
+            if (panier[i].quantite > 1) {
+                panier[i].quantite -= 1;
+                savePanier(panier);
+                afficherPanier();
+            } else if (panier[i].quantite === 1) {
+                supprimerJeu(id);
+            }
+            break;
+        }
     }
 };
 
 window.supprimerJeu = function(id) {
-    panier = panier.filter(e => e.id !== id);
-    actualiserPanier();
-}
+    let panier = getPanier();
+    let nouveauPanier = [];
+    
+    for (let i = 0; i < panier.length; i++) {
+        if (panier[i].id !== id) {
+            nouveauPanier.push(panier[i]);
+        }
+    }
+    
+    savePanier(nouveauPanier);
+    afficherPanier();
+};
 
+// ==========================================
+// L'EXECUTION W BOUTON COMMANDER
+// ==========================================
 
-afficherPanier();
-
+afficherPanier(); // Khtwa lwala: N'affichiw l'panier mli t7el l'page
 
 const btnCommander = document.getElementById("btn-commander");
-if(btnCommander){
-    btnCommander.addEventListener("click", ()=> {
-        if(panier.length===0){
-           alert("Votre coffre-fort est déjà vide ! Ajoutez des jeux d'abord.")
+if (btnCommander) {
+    btnCommander.addEventListener("click", () => {
+        let panier = getPanier();
+        
+        if (panier.length === 0) {
+           alert("Votre coffre-fort est déjà vide ! Ajoutez des jeux d'abord.");
            return;
         }
-        alert("Félicitations ! 🎉 Votre commande a été validée avec succès. Merci d'avoir choisi GameVault !");
-        panier=[];
-        localStorage.removeItem("VaultCart");
-        afficherPanier();
+        
+        alert("Félicitations ! 🎉 Votre commande a été validée avec succès.");
+        savePanier([]); // Kan khwiw l'navigateur b tableau khawi
+        afficherPanier(); // Kan 3awdo nrsmo bash yban khawi
     });
 }
