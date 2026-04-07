@@ -2,6 +2,7 @@ import { games } from "./data.js";
 import { afficherJeux } from "./main.js";
 
 const input = document.getElementById("input");
+const number = document.getElementById("number")
 
 export function SearchInput() {
     input.addEventListener("input", () => {
@@ -20,3 +21,15 @@ export function SearchInput() {
         afficherJeux(resultat);
     });
 }
+// export function SearchNumber(){
+//     number.addEventListener("number" , ()=>{
+//         const num = number.value;
+        
+//             const res = games.filter((games) => games.price === num)
+//             afficherJeux(res)
+        
+
+//     })
+//  // result.filter((games) => games.category.toLowerCase() === categorie.toLowerCase())
+     
+// }

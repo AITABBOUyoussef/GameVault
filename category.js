@@ -8,7 +8,8 @@ export function FiltrerCategory(games) {
 
     const categorie = e.target.dataset.name;
 
-    if (categorie === "All") {      
+    if (categorie === "All") {
+          
       afficherJeux(games)
     }
     else {
@@ -19,8 +20,11 @@ export function FiltrerCategory(games) {
 
         }
       }
+    
+      //  const result = [];
+      // result.filter((games) => games.category.toLowerCase() === categorie.toLowerCase())
       afficherJeux(result)
-      
     }
+    
   });
 }
