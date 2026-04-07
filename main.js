@@ -9,9 +9,9 @@ const boite = document.getElementById("games-container");
 export function afficherJeux(listeJeux) {
     boite.innerHTML = "";
     
-    // Khdemna b boucle FOR 3adiya
+
     for (let i = 0; i < listeJeux.length; i++) {
-        let jeux = listeJeux[i]; // Kanchedou l'jeu dyal daba
+        let jeux = listeJeux[i]; 
         
         const carteHTML = `
         <div class="flex flex-col w-full h-full bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 hover:border-purple-500 hover:-translate-y-2 transition-all duration-300">

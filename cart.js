@@ -1,12 +1,9 @@
 import { getPanier, savePanier } from "./cart-data.js";
 import { afficherPanier } from "./cart-ui.js";
 
-// ==========================================
-// LES BOUTONS (+, -, POUBELLE)
-// ==========================================
 
 window.augmenterQuantite = function(id) {
-    let panier = getPanier(); // njbdo panier
+    let panier = getPanier(); 
     
     for (let i = 0; i < panier.length; i++) {
         if (panier[i].id === id) {
@@ -15,8 +12,8 @@ window.augmenterQuantite = function(id) {
         }
     }
     
-    savePanier(panier); // nsauviw
-    afficherPanier();   // nrsmo
+    savePanier(panier); 
+    afficherPanier();   
 };
 
 window.diminuerQuantite = function(id) {
@@ -50,11 +47,8 @@ window.supprimerJeu = function(id) {
     afficherPanier();
 };
 
-// ==========================================
-// L'EXECUTION W BOUTON COMMANDER
-// ==========================================
 
-afficherPanier(); // Khtwa lwala: N'affichiw l'panier mli t7el l'page
+afficherPanier(); 
 
 const btnCommander = document.getElementById("btn-commander");
 if (btnCommander) {
@@ -66,8 +60,8 @@ if (btnCommander) {
            return;
         }
         
-        alert("Félicitations ! 🎉 Votre commande a été validée avec succès.");
-        savePanier([]); // Kan khwiw l'navigateur b tableau khawi
-        afficherPanier(); // Kan 3awdo nrsmo bash yban khawi
+        alert("Félicitations Votre commande a été validée avec succès.");
+        savePanier([]); 
+        afficherPanier();
     });
 }

@@ -1,4 +1,3 @@
-// Kan jibou la fonction getPanier mn l'fichier lakhor
 import { getPanier } from "./cart-data.js";
 
 const cartContainer = document.getElementById("cart-items-container");
@@ -6,7 +5,7 @@ const totalArticles = document.getElementById("total-articles");
 const prixTotalElement = document.getElementById("prix-total");
 
 export function afficherPanier() {
-    let panier = getPanier(); // Kanjibou l'panier mn LocalStorage
+    let panier = getPanier(); 
     cartContainer.innerHTML = "";
     
     if (panier.length === 0) {
