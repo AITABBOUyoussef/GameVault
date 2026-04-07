@@ -1,25 +1,39 @@
 import { games } from "./data.js";
+import { savePanier } from "./cart-data.js";
+import { getPanier } from "./cart-data.js";
+let panier = getPanier();
+document.getElementById("cart-count").innerText = panier.length;
 
-const panierSauvgarde = localStorage.getItem("VaultCart");
-
-let panier = panierSauvgarde ? JSON.parse(panierSauvgarde) :[];
- document.getElementById("cart-count").innerText=panier.length;
-
-
-export function ajouterPanier(id_jeu){
-  
-   
-
-    const jeuChoisi = games.find(jeu=> jeu.id===id_jeu);
-    const  jeuPanier = panier.find(e=>e.id===id_jeu)
-    if(jeuPanier){
-        jeuPanier.quantite += 1;
-        console.log(panier);
-    }else{
-        panier.push({...jeuChoisi,quantite:1});
+export function ajouterPanier(id_jeu) {
     
+   
+    let jeuChoisi = null;
+    for (let i = 0; i < games.length; i++) {
+        if (games[i].id === id_jeu) {
+            jeuChoisi = games[i];
+            break; 
+        }
     }
-    document.getElementById("cart-count").innerText=panier.length;
+ let jeuPanier = null;
+    for (let i = 0; i < panier.length; i++) {
+        if (panier[i].id === id_jeu) {
+            jeuPanier = panier[i];
+            break;
+        }
+    }
+  if (jeuPanier !== null) {
+       jeuPanier.quantite += 1;
+    } else {
+        panier.push({
+            id: jeuChoisi.id,
+            title: jeuChoisi.title,
+            price: jeuChoisi.price,
+            category: jeuChoisi.category,
+            image: jeuChoisi.image,
+            quantite: 1
+        });
+    }
 
-    localStorage.setItem("VaultCart" , JSON.stringify(panier));
+    document.getElementById("cart-count").innerText = panier.length;
+    savePanier(panier);
 }
