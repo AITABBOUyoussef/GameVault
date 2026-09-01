@@ -177,11 +177,10 @@ Ces améliorations permettraient de transformer GameVault en une véritable plat
 
 ## 11. Liens du projet
 
-- [Live Demo ](https://game-vault-26mtj5b2x-youssef-3992.vercel.app/)
-- [Maquette Figma](https://www.figma.com/design/Hox9pJlsJoLJ26Ha1dNxZe/Untitled?node-id=0-1&t=dktXV87lIO6bxV7w-0)
+- [Live Demo ](https://frontend-bde.vercel.app/)
 - [Tableau Trello](https://trello.com/b/wbcyius2/gamevault)
-- [Dépôt GitHub](https://github.com/AITABBOUyoussef/GameVault)
-- [Moodboard Canva](https://www.canva.com/design/DAHF0L2MeJQ/7qChHNbTB7e4eHyvR3qS4g/edit)
+- [Dépôt GitHub](https://github.com/AITABBOUyoussef/bde-events)
+- [Moodboard Canva](https://www.canva.com/design/DAHQTnu7JXM/_wyJhjQcrmujG4TyqG1Agw/edit?ui=e30)
 
 <div align="center">
 
