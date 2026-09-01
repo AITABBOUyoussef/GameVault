@@ -177,6 +177,7 @@ Ces améliorations permettraient de transformer GameVault en une véritable plat
 
 ## 11. Liens du projet
 
+- [Live Demo ](https://game-vault-26mtj5b2x-youssef-3992.vercel.app/)
 - [Maquette Figma](https://www.figma.com/design/Hox9pJlsJoLJ26Ha1dNxZe/Untitled?node-id=0-1&t=dktXV87lIO6bxV7w-0)
 - [Tableau Trello](https://trello.com/b/wbcyius2/gamevault)
 - [Dépôt GitHub](https://github.com/AITABBOUyoussef/GameVault)
